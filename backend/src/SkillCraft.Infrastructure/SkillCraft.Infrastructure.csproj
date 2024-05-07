@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <PackageReference Include="Logitar.Identity.Infrastructure" Version="1.0.0" />
+    <PackageReference Include="Logitar.Portal.Client" Version="4.1.0" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="8.0.0" />
   </ItemGroup>
 
