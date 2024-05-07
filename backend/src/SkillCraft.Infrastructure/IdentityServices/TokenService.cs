@@ -4,7 +4,6 @@ using Logitar.Portal.Contracts.Users;
 using Logitar.Security.Claims;
 using SkillCraft.Application.Accounts;
 using SkillCraft.Application.Constants;
-using System.Security.Claims;
 
 namespace SkillCraft.Infrastructure.IdentityServices;
 

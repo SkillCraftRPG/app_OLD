@@ -2,7 +2,6 @@
 using Logitar.Portal.Contracts.Messages;
 using Logitar.Portal.Contracts.Users;
 using SkillCraft.Contracts.Accounts;
-using System.Text;
 
 namespace SkillCraft.Application.Accounts;
 
