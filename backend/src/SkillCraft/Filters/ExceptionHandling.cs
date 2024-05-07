@@ -25,6 +25,14 @@ internal class ExceptionHandling : ExceptionFilterAttribute
       context.Result = new ConflictObjectResult(conflict.Error);
       context.ExceptionHandled = true;
     }
+    else if (context.Exception is PermissionDeniedException permissionDenied)
+    {
+      context.Result = new JsonResult(permissionDenied.Error)
+      {
+        StatusCode = StatusCodes.Status403Forbidden
+      };
+      context.ExceptionHandled = true;
+    }
     else
     {
       base.OnException(context);
