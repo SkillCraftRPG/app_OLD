@@ -5,6 +5,7 @@ using SkillCraft.Application;
 using SkillCraft.Application.Accounts;
 using SkillCraft.Application.Caching;
 using SkillCraft.Infrastructure.Caching;
+using SkillCraft.Infrastructure.Converters;
 using SkillCraft.Infrastructure.IdentityServices;
 using SkillCraft.Infrastructure.Settings;
 
@@ -41,7 +42,8 @@ public static class DependencyInjectionExtensions
   {
     EventSerializer eventSerializer = new();
 
-    // Register converters
+    eventSerializer.RegisterConverter(new UniqueSlugConverter());
+    eventSerializer.RegisterConverter(new WorldIdConverter());
 
     return eventSerializer;
   }
