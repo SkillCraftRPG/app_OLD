@@ -1,24 +1,45 @@
-version: "3.8"
 name: skillcraft
 services:
+  skillcraft_mongo:
+    image: mongo
+    container_name: SkillCraft_mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: skillcraft
+      MONGO_INITDB_ROOT_PASSWORD: tS8EymgadH4RC3e9
+    ports:
+      - 27028:27017
+
   skillcraft_mssql:
     image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: SkillCraft_mssql
+    restart: unless-stopped
     environment:
       ACCEPT_EULA: 'Y'
       SA_PASSWORD: veg37TPkBDGC85HJ
     ports:
       - 1438:1433
 
+  skillcraft_postgres:
+    image: postgres
+    container_name: SkillCraft_postgres
+    environment:
+      POSTGRES_PASSWORD: Ybk86WZjpFmBd3vQ
+    ports:
+      - 5438:5432
+
   skillcraft_portal:
-    image: fpion/portal:v4.0.1
+    image: fpion/portal:v4.1.0
     container_name: SkillCraft_portal
     depends_on:
+      - skillcraft_mongo
       - skillcraft_mssql
+      - skillcraft_postgres
     restart: unless-stopped
     environment:
       EnableBasicAuthentication: "true"
       EnableMigrations: "true"
+      MongoDB:ConnectionString: mongodb://skillcraft:tS8EymgadH4RC3e9@skillcraft_mongo:27017/
+      POSTGRESQLCONNSTR_Portal: "User ID=postgres;Password=Ybk86WZjpFmBd3vQ;Host=skillcraft_postgres;Port=5432;Database=Portal;"
       SQLCONNSTR_Portal: "Server=skillcraft_mssql;Database=Portal;User Id=SA;Password=veg37TPkBDGC85HJ;Persist Security Info=False;Encrypt=False;"
     ports:
       - 8888:8080
@@ -30,11 +51,14 @@ services:
     image: skillcraft_backend
     container_name: SkillCraft_backend
     depends_on:
+      - skillcraft_mongo
       - skillcraft_mssql
+      - skillcraft_postgres
     restart: unless-stopped
     environment:
       ASPNETCORE_Environment: Development
       Portal:BaseUrl: http://skillcraft_portal:8080
+      POSTGRESQLCONNSTR_SkillCraft: "User ID=postgres;Password=Ybk86WZjpFmBd3vQ;Host=skillcraft_postgres;Port=5432;Database=SkillCraft;"
       SQLCONNSTR_SkillCraft: "Server=skillcraft_mssql;Database=SkillCraft;User Id=SA;Password=veg37TPkBDGC85HJ;Persist Security Info=False;Encrypt=False;"
     ports:
       - 8088:8080

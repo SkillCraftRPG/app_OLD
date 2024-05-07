@@ -1,0 +1,88 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5EDA6627-D7B5-4DF3-9E20-504DE8A00C4B}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillCraft.Contracts", "src\SkillCraft.Contracts\SkillCraft.Contracts.csproj", "{EF5C73B8-B655-4C62-A004-B6F7BC486A1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillCraft.Domain", "src\SkillCraft.Domain\SkillCraft.Domain.csproj", "{84C43561-11E3-4F20-B8DE-9107D51FE543}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillCraft.Application", "src\SkillCraft.Application\SkillCraft.Application.csproj", "{59949367-2DBF-434F-BC8C-AD71BAA8F20A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillCraft.Infrastructure", "src\SkillCraft.Infrastructure\SkillCraft.Infrastructure.csproj", "{DD31595D-09BA-43F9-A737-BEDD808946C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillCraft.EntityFrameworkCore", "src\SkillCraft.EntityFrameworkCore\SkillCraft.EntityFrameworkCore.csproj", "{7445CF33-0F33-4661-BF6B-8EEE01E0B5FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillCraft.EntityFrameworkCore.PostgreSQL", "src\SkillCraft.EntityFrameworkCore.PostgreSQL\SkillCraft.EntityFrameworkCore.PostgreSQL.csproj", "{C4BD00B7-72A8-4433-854C-E90D051317D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillCraft.EntityFrameworkCore.SqlServer", "src\SkillCraft.EntityFrameworkCore.SqlServer\SkillCraft.EntityFrameworkCore.SqlServer.csproj", "{F3882904-05B5-42FD-830D-4B5ABBEE9322}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillCraft.MongoDB", "src\SkillCraft.MongoDB\SkillCraft.MongoDB.csproj", "{972F2393-B948-4F09-B316-B27C3B5ACDB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillCraft.GraphQL", "src\SkillCraft.GraphQL\SkillCraft.GraphQL.csproj", "{2FD03C82-EA0B-481C-9E4D-E815687B5572}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillCraft", "src\SkillCraft\SkillCraft.csproj", "{8FDBD7BA-12D1-479A-A4D3-DA1B77F6F55B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF5C73B8-B655-4C62-A004-B6F7BC486A1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF5C73B8-B655-4C62-A004-B6F7BC486A1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF5C73B8-B655-4C62-A004-B6F7BC486A1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF5C73B8-B655-4C62-A004-B6F7BC486A1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84C43561-11E3-4F20-B8DE-9107D51FE543}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84C43561-11E3-4F20-B8DE-9107D51FE543}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84C43561-11E3-4F20-B8DE-9107D51FE543}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84C43561-11E3-4F20-B8DE-9107D51FE543}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59949367-2DBF-434F-BC8C-AD71BAA8F20A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59949367-2DBF-434F-BC8C-AD71BAA8F20A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59949367-2DBF-434F-BC8C-AD71BAA8F20A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59949367-2DBF-434F-BC8C-AD71BAA8F20A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD31595D-09BA-43F9-A737-BEDD808946C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD31595D-09BA-43F9-A737-BEDD808946C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD31595D-09BA-43F9-A737-BEDD808946C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD31595D-09BA-43F9-A737-BEDD808946C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7445CF33-0F33-4661-BF6B-8EEE01E0B5FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7445CF33-0F33-4661-BF6B-8EEE01E0B5FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7445CF33-0F33-4661-BF6B-8EEE01E0B5FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7445CF33-0F33-4661-BF6B-8EEE01E0B5FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4BD00B7-72A8-4433-854C-E90D051317D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4BD00B7-72A8-4433-854C-E90D051317D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4BD00B7-72A8-4433-854C-E90D051317D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4BD00B7-72A8-4433-854C-E90D051317D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3882904-05B5-42FD-830D-4B5ABBEE9322}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3882904-05B5-42FD-830D-4B5ABBEE9322}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3882904-05B5-42FD-830D-4B5ABBEE9322}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3882904-05B5-42FD-830D-4B5ABBEE9322}.Release|Any CPU.Build.0 = Release|Any CPU
+		{972F2393-B948-4F09-B316-B27C3B5ACDB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{972F2393-B948-4F09-B316-B27C3B5ACDB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{972F2393-B948-4F09-B316-B27C3B5ACDB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{972F2393-B948-4F09-B316-B27C3B5ACDB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FD03C82-EA0B-481C-9E4D-E815687B5572}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FD03C82-EA0B-481C-9E4D-E815687B5572}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FD03C82-EA0B-481C-9E4D-E815687B5572}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FD03C82-EA0B-481C-9E4D-E815687B5572}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FDBD7BA-12D1-479A-A4D3-DA1B77F6F55B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FDBD7BA-12D1-479A-A4D3-DA1B77F6F55B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FDBD7BA-12D1-479A-A4D3-DA1B77F6F55B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FDBD7BA-12D1-479A-A4D3-DA1B77F6F55B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {501024C5-62D5-43DB-8E40-65FA793EB61C}
+	EndGlobalSection
+EndGlobal
