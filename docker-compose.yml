@@ -1,0 +1,40 @@
+version: "3.8"
+name: skillcraft
+services:
+  skillcraft_mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: SkillCraft_mssql
+    environment:
+      ACCEPT_EULA: 'Y'
+      SA_PASSWORD: veg37TPkBDGC85HJ
+    ports:
+      - 1438:1433
+
+  skillcraft_portal:
+    image: fpion/portal:v4.0.1
+    container_name: SkillCraft_portal
+    depends_on:
+      - skillcraft_mssql
+    restart: unless-stopped
+    environment:
+      EnableBasicAuthentication: "true"
+      EnableMigrations: "true"
+      SQLCONNSTR_Portal: "Server=skillcraft_mssql;Database=Portal;User Id=SA;Password=veg37TPkBDGC85HJ;Persist Security Info=False;Encrypt=False;"
+    ports:
+      - 8888:8080
+
+  skillcraft_backend:
+    build:
+      context: ./backend
+      dockerfile: /src/SkillCraft/Dockerfile
+    image: skillcraft_backend
+    container_name: SkillCraft_backend
+    depends_on:
+      - skillcraft_mssql
+    restart: unless-stopped
+    environment:
+      ASPNETCORE_Environment: Development
+      Portal:BaseUrl: http://skillcraft_portal:8080
+      SQLCONNSTR_SkillCraft: "Server=skillcraft_mssql;Database=SkillCraft;User Id=SA;Password=veg37TPkBDGC85HJ;Persist Security Info=False;Encrypt=False;"
+    ports:
+      - 8088:8080
