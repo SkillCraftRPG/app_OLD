@@ -3,6 +3,7 @@ services:
   skillcraft_mongo:
     image: mongo
     container_name: SkillCraft_mongo
+    restart: unless-stopped
     environment:
       MONGO_INITDB_ROOT_USERNAME: skillcraft
       MONGO_INITDB_ROOT_PASSWORD: tS8EymgadH4RC3e9
@@ -22,6 +23,7 @@ services:
   skillcraft_postgres:
     image: postgres
     container_name: SkillCraft_postgres
+    restart: unless-stopped
     environment:
       POSTGRES_PASSWORD: Ybk86WZjpFmBd3vQ
     ports:
