@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SkillCraft.EntityFrameworkCore.Handlers;
 
 namespace SkillCraft.EntityFrameworkCore.SqlServer;
 
@@ -28,6 +27,7 @@ public static class DependencyInjectionExtensions
     return services
       .AddDbContext<SkillCraftContext>(options => options.UseSqlServer(connectionString, b => b.MigrationsAssembly("SkillCraft.EntityFrameworkCore.SqlServer")))
       .AddLogitarEventSourcingWithEntityFrameworkCoreSqlServer(connectionString)
-      .AddSkillCraftWithEntityFrameworkCore();
+      .AddSkillCraftWithEntityFrameworkCore()
+      .AddSingleton<ISqlHelper, SqlServerHelper>();
   }
 }

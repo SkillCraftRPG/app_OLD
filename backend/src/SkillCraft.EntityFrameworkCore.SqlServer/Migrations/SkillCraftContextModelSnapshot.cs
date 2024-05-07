@@ -70,6 +70,80 @@ namespace SkillCraft.EntityFrameworkCore.SqlServer.Migrations
 
                     b.ToTable("Actors", (string)null);
                 });
+
+            modelBuilder.Entity("SkillCraft.EntityFrameworkCore.Entities.WorldEntity", b =>
+                {
+                    b.Property<int>("WorldId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("WorldId"));
+
+                    b.Property<string>("AggregateId")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DisplayName")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("UniqueSlug")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("nvarchar(32)");
+
+                    b.Property<string>("UniqueSlugNormalized")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("nvarchar(32)");
+
+                    b.Property<string>("UpdatedBy")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<DateTime>("UpdatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("Version")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("WorldId");
+
+                    b.HasIndex("AggregateId")
+                        .IsUnique();
+
+                    b.HasIndex("CreatedBy");
+
+                    b.HasIndex("CreatedOn");
+
+                    b.HasIndex("DisplayName");
+
+                    b.HasIndex("UniqueSlug");
+
+                    b.HasIndex("UniqueSlugNormalized")
+                        .IsUnique();
+
+                    b.HasIndex("UpdatedBy");
+
+                    b.HasIndex("UpdatedOn");
+
+                    b.HasIndex("Version");
+
+                    b.ToTable("Worlds", (string)null);
+                });
 #pragma warning restore 612, 618
         }
     }

@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SkillCraft.EntityFrameworkCore.Handlers;
 
 namespace SkillCraft.EntityFrameworkCore.PostgreSQL;
 
@@ -28,6 +27,7 @@ public static class DependencyInjectionExtensions
     return services
       .AddDbContext<SkillCraftContext>(options => options.UseNpgsql(connectionString, b => b.MigrationsAssembly("SkillCraft.EntityFrameworkCore.PostgreSQL")))
       .AddLogitarEventSourcingWithEntityFrameworkCorePostgreSQL(connectionString)
-      .AddSkillCraftWithEntityFrameworkCore();
+      .AddSkillCraftWithEntityFrameworkCore()
+      .AddSingleton<ISqlHelper, PostgresHelper>();
   }
 }

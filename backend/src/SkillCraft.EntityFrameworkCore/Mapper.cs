@@ -1,6 +1,7 @@
 ﻿using Logitar.EventSourcing;
 using Logitar.Portal.Contracts;
 using Logitar.Portal.Contracts.Actors;
+using SkillCraft.Contracts.Worlds;
 using SkillCraft.EntityFrameworkCore.Entities;
 
 namespace SkillCraft.EntityFrameworkCore;
@@ -32,6 +33,19 @@ internal class Mapper
     EmailAddress = actor.EmailAddress,
     PictureUrl = actor.PictureUrl
   };
+
+  public World ToWorld(WorldEntity source)
+  {
+    World destination = new(source.UniqueSlug)
+    {
+      DisplayName = source.DisplayName,
+      Description = source.Description
+    };
+
+    MapAggregate(source, destination);
+
+    return destination;
+  }
 
   private void MapAggregate(AggregateEntity source, Aggregate destination)
   {
