@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dd3519df-60c2-4d0c-9369-4e973f62ea1c</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="secrets.example.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="secrets.example.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Logitar.Net" Version="6.1.0" />
+    <PackageReference Include="Logitar.Portal.Client" Version="4.1.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.22.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="8.0.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.20.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SkillCraft.EntityFrameworkCore.PostgreSQL\SkillCraft.EntityFrameworkCore.PostgreSQL.csproj" />
+    <ProjectReference Include="..\SkillCraft.EntityFrameworkCore.SqlServer\SkillCraft.EntityFrameworkCore.SqlServer.csproj" />
+    <ProjectReference Include="..\SkillCraft.GraphQL\SkillCraft.GraphQL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="System.IdentityModel.Tokens.Jwt" />
+    <Using Include="System.Security.Claims" />
+    <Using Include="System.Text" />
+    <Using Include="System.Text.Json" />
+    <Using Include="System.Text.Json.Serialization" />
+  </ItemGroup>
+
+</Project>
