@@ -5,6 +5,7 @@ namespace SkillCraft.Application.Constants;
 internal static class Templates
 {
   public const string AccountAuthentication = "AccountAuthentication";
+  public const string PasswordRecovery = "PasswordRecovery";
 
   private const string ContactVerification = "ContactVerification{ContactType}";
   private const string MultiFactorAuthentication = "MultiFactorAuthentication{ContactType}";
