@@ -1,5 +1,6 @@
 ﻿using Logitar.EventSourcing.EntityFrameworkCore.Relational;
 using Logitar.Portal.Client;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using SkillCraft.Application;
 using SkillCraft.Authentication;
@@ -10,6 +11,7 @@ using SkillCraft.EntityFrameworkCore.SqlServer;
 using SkillCraft.Extensions;
 using SkillCraft.Filters;
 using SkillCraft.Infrastructure;
+using SkillCraft.Middlewares;
 using SkillCraft.Settings;
 
 namespace SkillCraft;
@@ -42,14 +44,14 @@ internal class Startup : StartupBase
     services.AddSingleton(bearerTokenSettings);
     services.AddSingleton<IBearerTokenService, BearerTokenService>();
 
-    //AuthenticationBuilder authenticationBuilder = services.AddAuthentication()
-    //      .AddScheme<ApiKeyAuthenticationOptions, ApiKeyAuthenticationHandler>(Schemes.ApiKey, options => { })
-    //      .AddScheme<BearerAuthenticationOptions, BearerAuthenticationHandler>(Schemes.Bearer, options => { })
-    //      .AddScheme<SessionAuthenticationOptions, SessionAuthenticationHandler>(Schemes.Session, options => { });
-    //if (_authenticationSchemes.Contains(Schemes.Basic))
-    //{
-    //  authenticationBuilder.AddScheme<BasicAuthenticationOptions, BasicAuthenticationHandler>(Schemes.Basic, options => { });
-    //}
+    AuthenticationBuilder authenticationBuilder = services.AddAuthentication()
+      .AddScheme<ApiKeyAuthenticationOptions, ApiKeyAuthenticationHandler>(Schemes.ApiKey, options => { })
+      .AddScheme<BearerAuthenticationOptions, BearerAuthenticationHandler>(Schemes.Bearer, options => { })
+      .AddScheme<SessionAuthenticationOptions, SessionAuthenticationHandler>(Schemes.Session, options => { });
+    if (_authenticationSchemes.Contains(Schemes.Basic))
+    {
+      authenticationBuilder.AddScheme<BasicAuthenticationOptions, BasicAuthenticationHandler>(Schemes.Basic, options => { });
+    }
 
     services.AddAuthorizationBuilder().SetDefaultPolicy(new AuthorizationPolicyBuilder(_authenticationSchemes)
       .RequireAuthenticatedUser()
@@ -103,7 +105,7 @@ internal class Startup : StartupBase
     builder.UseHttpsRedirection();
     builder.UseCors();
     builder.UseSession();
-    //builder.UseMiddleware<RenewSession>();
+    builder.UseMiddleware<RenewSession>();
     builder.UseAuthentication();
     builder.UseAuthorization();
 

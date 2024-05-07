@@ -2,8 +2,10 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SkillCraft.Application;
+using SkillCraft.Application.Accounts;
 using SkillCraft.Application.Caching;
 using SkillCraft.Infrastructure.Caching;
+using SkillCraft.Infrastructure.IdentityServices;
 using SkillCraft.Infrastructure.Settings;
 
 namespace SkillCraft.Infrastructure;
@@ -15,7 +17,7 @@ public static class DependencyInjectionExtensions
     return services
       .AddLogitarEventSourcingInfrastructure()
       .AddSkillCraftApplication()
-      //.AddIdentityServices()
+      .AddIdentityServices()
       .AddMemoryCache()
       .AddSingleton(InitializeCachingSettings)
       .AddSingleton<ICacheService, CacheService>()
@@ -23,16 +25,16 @@ public static class DependencyInjectionExtensions
       .AddTransient<IEventBus, EventBus>();
   }
 
-  //private static IServiceCollection AddIdentityServices(this IServiceCollection services)
-  //{
-  //  return services
-  //    .AddTransient<IApiKeyService, ApiKeyService>()
-  //    .AddTransient<IMessageService, MessageService>()
-  //    .AddTransient<IOneTimePasswordService, OneTimePasswordService>()
-  //    .AddTransient<ISessionService, SessionService>()
-  //    .AddTransient<ITokenService, TokenService>()
-  //    .AddTransient<IUserService, UserService>();
-  //}
+  private static IServiceCollection AddIdentityServices(this IServiceCollection services)
+  {
+    return services
+      .AddTransient<IApiKeyService, ApiKeyService>()
+      .AddTransient<IMessageService, MessageService>()
+      .AddTransient<IOneTimePasswordService, OneTimePasswordService>()
+      .AddTransient<ISessionService, SessionService>()
+      .AddTransient<ITokenService, TokenService>()
+      .AddTransient<IUserService, UserService>();
+  }
 
   private static EventSerializer BuildEventSerializer(IServiceProvider serviceProvider)
   {
