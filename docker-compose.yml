@@ -46,6 +46,19 @@ services:
     ports:
       - 8888:8080
 
+  skillcraft_seeding:
+    build:
+      context: ./backend
+      dockerfile: /tools/SkillCraft.PortalSeeding.Worker/Dockerfile
+    image: skillcraft_seeding
+    container_name: SkillCraft.PortalSeeding.Worker_seeding
+    depends_on:
+      - skillcraft_portal
+    restart: unless-stopped
+    environment:
+      DOTNET_ENVIRONMENT: Development
+      Portal:BaseUrl: http://skillcraft_portal:8080
+
   skillcraft_backend:
     build:
       context: ./backend
