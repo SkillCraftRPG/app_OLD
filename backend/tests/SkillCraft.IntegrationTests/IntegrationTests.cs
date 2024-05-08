@@ -130,6 +130,7 @@ public abstract class IntegrationTests : IAsyncLifetime
     await publisher.Publish(new InitializeDatabaseCommand());
 
     StringBuilder command = new();
+    command.AppendLine(CreateDeleteBuilder(SkillCraftDb.Worlds.Table).Build().Text);
     command.AppendLine(CreateDeleteBuilder(SkillCraftDb.Actors.Table).Build().Text);
     command.AppendLine(CreateDeleteBuilder(EventDb.Events.Table).Build().Text);
     await SkillCraftContext.Database.ExecuteSqlRawAsync(command.ToString());

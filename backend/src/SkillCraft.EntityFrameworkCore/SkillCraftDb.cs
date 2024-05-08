@@ -18,5 +18,34 @@ internal static class SkillCraftDb
     public static readonly ColumnId Type = new(nameof(ActorEntity.Type), Table);
   }
 
+  public static class StorageSummaries
+  {
+    public static readonly TableId Table = new(nameof(SkillCraftContext.StorageSummaries));
+
+    public static readonly ColumnId ActorId = new(nameof(StorageSummaryEntity.ActorId), Table);
+    public static readonly ColumnId Allocated = new(nameof(StorageSummaryEntity.Allocated), Table);
+    public static readonly ColumnId Remaining = new(nameof(StorageSummaryEntity.Remaining), Table);
+    public static readonly ColumnId StorageSummaryId = new(nameof(StorageSummaryEntity.StorageSummaryId), Table);
+    public static readonly ColumnId Used = new(nameof(StorageSummaryEntity.Used), Table);
+    public static readonly ColumnId UserId = new(nameof(StorageSummaryEntity.UserId), Table);
+  }
+
+  public static class Worlds
+  {
+    public static readonly TableId Table = new(nameof(SkillCraftContext.Worlds));
+
+    public static readonly ColumnId AggregateId = new(nameof(WorldEntity.AggregateId), Table);
+    public static readonly ColumnId CreatedBy = new(nameof(WorldEntity.CreatedBy), Table);
+    public static readonly ColumnId CreatedOn = new(nameof(WorldEntity.CreatedOn), Table);
+    public static readonly ColumnId Description = new(nameof(WorldEntity.Description), Table);
+    public static readonly ColumnId DisplayName = new(nameof(WorldEntity.DisplayName), Table);
+    public static readonly ColumnId UniqueSlug = new(nameof(WorldEntity.UniqueSlug), Table);
+    public static readonly ColumnId UniqueSlugNormalized = new(nameof(WorldEntity.UniqueSlugNormalized), Table);
+    public static readonly ColumnId UpdatedBy = new(nameof(WorldEntity.UpdatedBy), Table);
+    public static readonly ColumnId UpdatedOn = new(nameof(WorldEntity.UpdatedOn), Table);
+    public static readonly ColumnId Version = new(nameof(WorldEntity.Version), Table);
+    public static readonly ColumnId WorldId = new(nameof(WorldEntity.WorldId), Table);
+  }
+
   public static string Normalize(string value) => value.Trim().ToUpper();
 }

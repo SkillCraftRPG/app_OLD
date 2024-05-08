@@ -45,6 +45,7 @@ public abstract record Activity : IActivity
       return _context.User;
     }
   }
+  public Guid UserId => User?.Id ?? throw new InvalidOperationException("An authenticated user is required.");
 
   public void Contextualize(ActivityContext context)
   {
