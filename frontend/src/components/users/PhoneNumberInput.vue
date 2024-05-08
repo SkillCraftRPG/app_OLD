@@ -3,7 +3,6 @@ import AppInput from "@/components/shared/AppInput.vue";
 import type { ShowStatus } from "@/types/validation";
 
 defineProps<{
-  disabled?: boolean | string;
   modelValue?: string;
   required?: boolean | string;
   showStatus?: ShowStatus;
@@ -16,16 +15,15 @@ defineEmits<{
 
 <template>
   <AppInput
-    :disabled="disabled"
     floating
-    id="email-address"
-    label="users.email.address"
-    max="255"
+    id="phone-number"
+    label="users.phone.number"
+    max="20"
     :model-value="modelValue"
-    placeholder="users.email.address"
+    placeholder="users.phone.number"
     :required="required"
     :show-status="showStatus"
-    type="email"
+    type="tel"
     @update:model-value="$emit('update:model-value', $event)"
   />
 </template>

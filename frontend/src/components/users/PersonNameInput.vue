@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import AppInput from "@/components/shared/AppInput.vue";
-import type { ShowStatus } from "@/types/validation";
+import { computed } from "vue";
+import type { PersonNameType } from "@/types/account";
 
-defineProps<{
-  disabled?: boolean | string;
+const props = defineProps<{
   modelValue?: string;
   required?: boolean | string;
-  showStatus?: ShowStatus;
+  type: PersonNameType;
 }>();
+
+const inputId = computed<string>(() => (props.type === "nick" ? "nickname" : `${props.type}-name`));
+const inputLabel = computed<string>(() => `users.names.${props.type}`);
 
 defineEmits<{
   (e: "update:model-value", value?: string): void;
@@ -16,16 +19,13 @@ defineEmits<{
 
 <template>
   <AppInput
-    :disabled="disabled"
     floating
-    id="email-address"
-    label="users.email.address"
+    :id="inputId"
+    :label="inputLabel"
     max="255"
     :model-value="modelValue"
-    placeholder="users.email.address"
+    :placeholder="inputLabel"
     :required="required"
-    :show-status="showStatus"
-    type="email"
     @update:model-value="$emit('update:model-value', $event)"
   />
 </template>

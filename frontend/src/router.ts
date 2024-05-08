@@ -15,6 +15,12 @@ const router = createRouter({
     },
     // Account
     {
+      name: "CompleteProfile",
+      path: "/profile/complete/:token",
+      component: () => import("./views/account/ProfileCompletion.vue"),
+      meta: { isPublic: true },
+    },
+    {
       name: "Profile",
       path: "/profile",
       component: () => import("./views/account/ProfileView.vue"),

@@ -17,5 +17,5 @@ withDefaults(
 </script>
 
 <template>
-  <TarButton icon="fas fa-chevron-left" :text="t('actions.back')" :variant="hasChanges ? 'warning' : 'secondary'" @click="router.back()" />
+  <TarButton icon="fas fa-arrow-left" :text="t('actions.back')" :variant="hasChanges ? 'warning' : 'secondary'" @click="router.back()" />
 </template>

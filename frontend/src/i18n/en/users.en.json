@@ -1,13 +1,109 @@
 {
+  "authenticatedOn": "Last signed-in on",
+  "authenticationLink": {
+    "Email": "An authentication link has been sent to your email address",
+    "Phone": "An authentication link has been sent to your phone number",
+    "closeTab": "Close tab",
+    "confirmationNumber": "In case you run into an issue, please contact our support team. Your confirmation number is",
+    "help": "You can close this tab. If you have not received a message, please check your spam box.",
+    "sent": "Authentication Link Sent"
+  },
+  "birthdate": "Date of birth",
+  "createdOn": "Created on",
   "email": {
-    "address": "Email Address"
+    "address": "Email Address",
+    "verified": "Verified"
+  },
+  "gender": {
+    "label": "Gender",
+    "options": {
+      "female": "Female",
+      "male": "Male",
+      "other": "Other"
+    },
+    "placeholder": "Select your gender"
+  },
+  "locale": {
+    "label": "Communication Language",
+    "placeholder": "Select your preferred communication language"
+  },
+  "names": {
+    "first": "First Name",
+    "full": "Name",
+    "last": "Last Name",
+    "middle": "Middle Name",
+    "nick": "Nickname"
   },
   "password": {
-    "label": "Password"
+    "changed": "Your password has been changed.",
+    "changedOn": "Last changed on {date}",
+    "confirm": "Password Confirmation",
+    "current": "Current Password",
+    "failed": "Password change failed!",
+    "invalid": "Please check you provided your correct current password.",
+    "label": "Password",
+    "new": "New Password",
+    "submit": "Change password"
+  },
+  "phone": {
+    "e164": "Phone Number (E.164)",
+    "extension": "Phone Extension",
+    "number": "Phone Number",
+    "verified": "Verified"
+  },
+  "profile": {
+    "complete": "Complete your profile",
+    "identification": {
+      "lead": "What is your name?",
+      "title": "Identification"
+    },
+    "personal": {
+      "lead": "Tell us more about you.",
+      "title": "Personal information"
+    },
+    "progress": "User profile completion progress",
+    "saved": "Your profile has been saved.",
+    "security": {
+      "lead": "Help us secure your account.",
+      "multiFactorAuthentication": {
+        "Email": {
+          "help": "A six-digit code will be sent to your email address.",
+          "label": "By email"
+        },
+        "None": {
+          "help": "Two-Factor Authentication will not be activated.",
+          "label": "Disabled"
+        },
+        "Phone": {
+          "help": "A six-digit code will be sent to your phone number.",
+          "label": "By phone"
+        },
+        "label": "Two-Factor Authentication"
+      },
+      "password": {
+        "less": {
+          "help": "You will sign-in by clicking a link sent to your email address.",
+          "label": "Without password"
+        },
+        "with": {
+          "help": "You will need to enter your password to sign-in.",
+          "label": "With a password"
+        }
+      },
+      "title": "Security"
+    },
+    "title": "Profile"
   },
   "signIn": {
+    "failed": "Sign in failed!",
+    "invalidCredentials": "Please check you provided the correct email username and password.",
     "submit": "Sign in",
     "title": "Sign In"
   },
-  "signOut": "Sign Out"
+  "signOut": "Sign Out",
+  "timeZone": {
+    "label": "Time Zone",
+    "placeholder": "Select your time zone"
+  },
+  "updatedOn": "Updated on"
 }
