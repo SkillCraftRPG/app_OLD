@@ -143,14 +143,13 @@ watchEffect(() => {
               </ul>
             </li>
           </template>
-          <!-- TODO(fpion): implement user sign-in -->
-          <!-- <template v-else>
+          <template v-else>
             <li class="nav-item">
               <RouterLink :to="{ name: 'SignIn' }" class="nav-link">
                 <font-awesome-icon icon="fas fa-arrow-right-to-bracket" /> {{ t("users.signIn.title") }}
               </RouterLink>
             </li>
-          </template> -->
+          </template>
         </ul>
       </div>
     </div>

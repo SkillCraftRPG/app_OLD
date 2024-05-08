@@ -1,0 +1,13 @@
+{
+  "email": {
+    "address": "Email Address"
+  },
+  "password": {
+    "label": "Password"
+  },
+  "signIn": {
+    "submit": "Sign in",
+    "title": "Sign In"
+  },
+  "signOut": "Sign Out"
+}

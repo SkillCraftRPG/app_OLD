@@ -1,0 +1,13 @@
+{
+  "email": {
+    "address": "Adresse courriel"
+  },
+  "password": {
+    "label": "Mot de passe"
+  },
+  "signIn": {
+    "submit": "Connexion",
+    "title": "Connexion"
+  },
+  "signOut": "Déconnexion"
+}
