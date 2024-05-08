@@ -22,7 +22,7 @@ function handleError(e: unknown): void {
     if (status === 401 || (typeof errors?.some === "function" && errors.some((error) => error.extensions?.code === "ACCESS_DENIED") === true)) {
       account.signOut();
       toasts.warning("toasts.warning.signedOut");
-      // router.push({ name: "SignIn", query: { redirect: route.fullPath } }); // TODO(fpion): implement user sign-in
+      router.push({ name: "SignIn", query: { redirect: route.fullPath } });
     } else {
       console.error(e);
       toasts.error();

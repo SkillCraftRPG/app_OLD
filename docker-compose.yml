@@ -73,6 +73,7 @@ services:
     environment:
       ASPNETCORE_Environment: Development
       Portal:BaseUrl: http://skillcraft_portal:8080
+      Portal:PhoneSenderId: 38e0778f-3448-474b-9fef-d647f1160139
       POSTGRESQLCONNSTR_SkillCraft: "User ID=postgres;Password=Ybk86WZjpFmBd3vQ;Host=skillcraft_postgres;Port=5432;Database=SkillCraft;"
       SQLCONNSTR_SkillCraft: "Server=skillcraft_mssql;Database=SkillCraft;User Id=SA;Password=veg37TPkBDGC85HJ;Persist Security Info=False;Encrypt=False;"
     ports:

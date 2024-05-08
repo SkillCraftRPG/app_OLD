@@ -40,6 +40,7 @@ defineEmits<{
       :disabled="loading"
       icon="fas fa-trash-can"
       :loading="loading"
+      :status="t('loading')"
       :text="t('actions.delete')"
       variant="danger"
       data-bs-toggle="modal"

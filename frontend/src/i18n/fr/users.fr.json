@@ -1,0 +1,109 @@
+{
+  "authenticatedOn": "Dernière connexion",
+  "authenticationLink": {
+    "Email": "Un lien d’authentification a été envoyé à votre adresse courriel",
+    "Phone": "Un lien d’authentification a été envoyé à votre numéro de téléphone",
+    "closeTab": "Fermer l’onglet",
+    "confirmationNumber": "En cas de problème, veuillez contacter notre équipe de support. Votre numéro de confirmation est",
+    "help": "Vous pouvez fermer cet onglet. Si vous n’avez pas reçu de message, vérifiez votre courrier indésirable.",
+    "sent": "Lien d’authentification envoyé"
+  },
+  "birthdate": "Date de naissance",
+  "createdOn": "Création",
+  "email": {
+    "address": "Adresse courriel",
+    "verified": "Vérifiée"
+  },
+  "gender": {
+    "label": "Genre",
+    "options": {
+      "female": "Femme",
+      "male": "Homme",
+      "other": "Autre"
+    },
+    "placeholder": "Sélectionnez votre genre"
+  },
+  "locale": {
+    "label": "Langue de communication",
+    "placeholder": "Sélectionnez votre langue de communication préférée"
+  },
+  "names": {
+    "first": "Prénom",
+    "full": "Nom complet",
+    "last": "Nom de famille",
+    "middle": "Nom intermédiaire",
+    "nick": "Surnom"
+  },
+  "password": {
+    "changed": "Votre mot de passe a été modifié.",
+    "changedOn": "Dernière modification le {date}",
+    "confirm": "Confirmation du mot de passe",
+    "current": "Mot de passe actuel",
+    "failed": "Modification du mot de passe échouée !",
+    "invalid": "Veuillez vérifier que vous avez entré le bon mot de passe actuel.",
+    "label": "Mot de passe",
+    "new": "Nouveau mot de passe",
+    "submit": "Modifier le mot de passe"
+  },
+  "phone": {
+    "e164": "Téléphone (E.164)",
+    "extension": "Extension téléphonique",
+    "number": "Numéro de téléphone",
+    "verified": "Vérifié"
+  },
+  "profile": {
+    "complete": "Complétez votre profil",
+    "identification": {
+      "lead": "Comment vous appelez-vous ?",
+      "title": "Identification"
+    },
+    "personal": {
+      "lead": "Dîtes-nous en plus à propos de vous.",
+      "title": "Renseignements personnels"
+    },
+    "progress": "Progression de la complétion du profil de l’utilisateur",
+    "saved": "Votre profil a été enregistré.",
+    "security": {
+      "lead": "Aidez-nous à sécuriser votre compte.",
+      "multiFactorAuthentication": {
+        "Email": {
+          "help": "Un code à six chiffres sera envoyé à votre adresse courriel.",
+          "label": "Par courriel"
+        },
+        "None": {
+          "help": "L’authentification à deux facteurs ne sera pas activée.",
+          "label": "Désactivé"
+        },
+        "Phone": {
+          "help": "Un code à six chiffres sera envoyé à votre numéro de téléphone.",
+          "label": "Par téléphone"
+        },
+        "label": "Authentification à deux facteurs"
+      },
+      "password": {
+        "less": {
+          "help": "Vous vous connecterez en cliquant sur un lien envoyé à votre adresse courriel.",
+          "label": "Sans mot de passe"
+        },
+        "with": {
+          "help": "Vous devrez entrer votre mot de passe afin de vous connecter.",
+          "label": "Avec mot de passe"
+        }
+      },
+      "title": "Sécurité"
+    },
+    "title": "Profil"
+  },
+  "signIn": {
+    "failed": "Connexion échouée !",
+    "invalidCredentials": "Veuillez vérifier que vous avez entré votre nom d’utilisateur et mot de passe.",
+    "submit": "Connexion",
+    "title": "Connexion"
+  },
+  "signOut": "Déconnexion",
+  "timeZone": {
+    "label": "Fuseau horaire",
+    "placeholder": "Sélectionnez votre fuseau horaire"
+  },
+  "updatedOn": "Dernière modification"
+}

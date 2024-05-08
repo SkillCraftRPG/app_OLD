@@ -13,6 +13,29 @@ const router = createRouter({
       component: HomeView,
       meta: { isPublic: true },
     },
+    // Account
+    {
+      name: "CompleteProfile",
+      path: "/profile/complete/:token",
+      component: () => import("./views/account/ProfileCompletion.vue"),
+      meta: { isPublic: true },
+    },
+    {
+      name: "Profile",
+      path: "/profile",
+      component: () => import("./views/account/ProfileView.vue"),
+    },
+    {
+      name: "SignIn",
+      path: "/sign-in",
+      component: () => import("./views/account/SignInView.vue"),
+      meta: { isPublic: true },
+    },
+    {
+      name: "SignOut",
+      path: "/sign-out",
+      component: () => import("./views/account/SignOutView.vue"),
+    },
     // NotFound
     {
       name: "NotFound",
@@ -29,7 +52,7 @@ const router = createRouter({
 router.beforeEach(async (to) => {
   const account = useAccountStore();
   if (!to.meta.isPublic && !account.currentUser) {
-    // return { name: "SignIn", query: { redirect: to.fullPath } }; // TODO(fpion): implement user sign-in
+    return { name: "SignIn", query: { redirect: to.fullPath } };
   }
 });
 
