@@ -18,6 +18,18 @@ internal static class SkillCraftDb
     public static readonly ColumnId Type = new(nameof(ActorEntity.Type), Table);
   }
 
+  public static class StorageSummaries
+  {
+    public static readonly TableId Table = new(nameof(SkillCraftContext.StorageSummaries));
+
+    public static readonly ColumnId ActorId = new(nameof(StorageSummaryEntity.ActorId), Table);
+    public static readonly ColumnId Allocated = new(nameof(StorageSummaryEntity.Allocated), Table);
+    public static readonly ColumnId Remaining = new(nameof(StorageSummaryEntity.Remaining), Table);
+    public static readonly ColumnId StorageSummaryId = new(nameof(StorageSummaryEntity.StorageSummaryId), Table);
+    public static readonly ColumnId Used = new(nameof(StorageSummaryEntity.Used), Table);
+    public static readonly ColumnId UserId = new(nameof(StorageSummaryEntity.UserId), Table);
+  }
+
   public static class Worlds
   {
     public static readonly TableId Table = new(nameof(SkillCraftContext.Worlds));
