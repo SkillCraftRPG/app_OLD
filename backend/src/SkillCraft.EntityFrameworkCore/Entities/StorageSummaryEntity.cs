@@ -1,21 +1,21 @@
 ﻿namespace SkillCraft.EntityFrameworkCore.Entities;
 
-internal class StorageSummaryEntity
+internal class StorageSummaryEntity // TODO(fpion): private fields
 {
-  public int StorageSummaryId { get; private set; }
+  public int StorageSummaryId { get; set; }
 
-  public string ActorId { get; private set; } = string.Empty;
-  public Guid UserId { get; private set; }
+  public string ActorId { get; set; } = string.Empty;
+  public Guid UserId { get; set; }
 
-  public long Allocated { get; private set; }
-  public long Used { get; private set; }
+  public long Allocated { get; set; }
+  public long Used { get; set; }
   public long Remaining
   {
     get => Allocated - Used;
-    private set { }
+    set { }
   }
 
-  private StorageSummaryEntity()
+  public StorageSummaryEntity()
   {
   }
 }

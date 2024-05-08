@@ -1,10 +1,12 @@
 ﻿using Logitar.EventSourcing.EntityFrameworkCore.Relational;
 using Microsoft.Extensions.DependencyInjection;
+using SkillCraft.Application.Storage;
 using SkillCraft.Application.Worlds;
 using SkillCraft.Domain.Worlds;
 using SkillCraft.EntityFrameworkCore.Actors;
 using SkillCraft.EntityFrameworkCore.Queriers;
 using SkillCraft.EntityFrameworkCore.Repositories;
+using SkillCraft.EntityFrameworkCore.Storage;
 using SkillCraft.Infrastructure;
 
 namespace SkillCraft.EntityFrameworkCore;
@@ -19,7 +21,8 @@ public static class DependencyInjectionExtensions
       .AddSkillCraftInfrastructure()
       .AddQueriers()
       .AddRepositories()
-      .AddTransient<IActorService, ActorService>();
+      .AddTransient<IActorService, ActorService>()
+      .AddTransient<IStorageService, StorageService>();
   }
 
   private static IServiceCollection AddQueriers(this IServiceCollection services)

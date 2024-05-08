@@ -41,6 +41,8 @@ public class WorldAggregate : AggregateRoot
     }
   }
 
+  public int Size => UniqueSlug.Value.Length + (DisplayName?.Value.Length ?? 0) + (Description?.Value.Length ?? 0);
+
   public WorldAggregate(AggregateId id) : base(id)
   {
   }
