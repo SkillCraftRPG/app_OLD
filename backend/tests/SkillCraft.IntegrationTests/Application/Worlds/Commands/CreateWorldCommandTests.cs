@@ -45,29 +45,6 @@ public class CreateWorldCommandTests : IntegrationTests
     Assert.NotNull(entity);
   }
 
-  [Fact(DisplayName = "It should throw NotEnoughStorageRemainingException when there is not enough storage remaining.")]
-  public async Task It_should_throw_NotEnoughStorageRemainingException_when_there_is_not_enough_storage_remaining()
-  {
-    #region TODO(fpion): refactor
-    StorageSummaryEntity storage = new()
-    {
-      ActorId = ActorId.Value,
-      UserId = Actor.Id,
-      Allocated = 40,
-      Used = 42
-    };
-    SkillCraftContext.StorageSummaries.Add(storage);
-    await SkillCraftContext.SaveChangesAsync();
-    #endregion
-
-    CreateWorldPayload payload = new("universe");
-    CreateWorldCommand command = new(payload);
-    var exception = await Assert.ThrowsAsync<NotEnoughStorageRemainingException>(async () => await Pipeline.ExecuteAsync(command));
-    Assert.Equal(Actor.Id, exception.UserId);
-    Assert.Equal(storage.Remaining, exception.RemainingStorage);
-    Assert.Equal(payload.UniqueSlug.Length, exception.RequiredStorage);
-  }
-
   [Fact(DisplayName = "It should throw PermissionDeniedException when the permission is denied.")]
   public async Task It_should_throw_PermissionDeniedException_when_the_permission_is_denied()
   {

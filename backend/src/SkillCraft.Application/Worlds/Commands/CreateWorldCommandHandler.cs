@@ -2,7 +2,6 @@
 using Logitar.Identity.Domain.Shared;
 using MediatR;
 using SkillCraft.Application.Permissions;
-using SkillCraft.Application.Storage;
 using SkillCraft.Application.Worlds.Validators;
 using SkillCraft.Contracts.Worlds;
 using SkillCraft.Domain.Shared;
@@ -14,14 +13,12 @@ internal class CreateWorldCommandHandler : IRequestHandler<CreateWorldCommand, W
 {
   private readonly IPermissionService _permissionService;
   private readonly ISender _sender;
-  private readonly IStorageService _storageService;
   private readonly IWorldQuerier _worldQuerier;
 
-  public CreateWorldCommandHandler(IPermissionService permissionService, ISender sender, IStorageService storageService, IWorldQuerier worldQuerier)
+  public CreateWorldCommandHandler(IPermissionService permissionService, ISender sender, IWorldQuerier worldQuerier)
   {
     _permissionService = permissionService;
     _sender = sender;
-    _storageService = storageService;
     _worldQuerier = worldQuerier;
   }
 
@@ -40,8 +37,9 @@ internal class CreateWorldCommandHandler : IRequestHandler<CreateWorldCommand, W
     };
     world.Update(command.ActorId);
 
-    await _storageService.EnsureEnoughAsync(command.UserId, world.Size, cancellationToken);
+    // TODO(fpion): ensure the user has enough remaining storage
     await _sender.Send(new SaveWorldCommand(world), cancellationToken);
+    // TODO(fpion): update user storage summary & detail
 
     return await _worldQuerier.ReadAsync(world, cancellationToken);
   }
