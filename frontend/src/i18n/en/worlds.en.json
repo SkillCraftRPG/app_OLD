@@ -1,0 +1,15 @@
+{
+  "empty": "This list is empty.",
+  "sort": {
+    "options": {
+      "DisplayName": "Display name",
+      "UniqueSlug": "Unique slug",
+      "UpdatedOn": "Last modified on"
+    }
+  },
+  "title": {
+    "create": "New world",
+    "list": "Worlds"
+  },
+  "uniqueSlug": "Unique slug"
+}

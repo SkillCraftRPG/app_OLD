@@ -1,4 +1,5 @@
 ﻿using Logitar.EventSourcing.Infrastructure;
+using Logitar.Identity.Infrastructure.Converters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SkillCraft.Application;
@@ -42,6 +43,8 @@ public static class DependencyInjectionExtensions
   {
     EventSerializer eventSerializer = new();
 
+    eventSerializer.RegisterConverter(new DescriptionConverter());
+    eventSerializer.RegisterConverter(new DisplayNameConverter());
     eventSerializer.RegisterConverter(new UniqueSlugConverter());
     eventSerializer.RegisterConverter(new WorldIdConverter());
 

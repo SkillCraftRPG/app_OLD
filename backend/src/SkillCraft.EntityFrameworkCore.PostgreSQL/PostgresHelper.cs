@@ -3,7 +3,9 @@ using Logitar.Data.PostgreSQL;
 
 namespace SkillCraft.EntityFrameworkCore.PostgreSQL;
 
-internal class PostgresHelper : ISqlHelper
+internal class PostgresHelper : SqlHelper, ISqlHelper
 {
-  public IQueryBuilder QueryFrom(TableId table) => PostgresQueryBuilder.From(table);
+  protected override ConditionalOperator CreateOperator(string pattern) => PostgresOperators.IsLikeInsensitive(pattern);
+
+  public override IQueryBuilder QueryFrom(TableId table) => PostgresQueryBuilder.From(table);
 }

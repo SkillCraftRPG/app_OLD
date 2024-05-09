@@ -108,7 +108,7 @@ public class SignInCommandTests : IntegrationTests
     UserService.Setup(x => x.CreateAsync(It.Is<Email>(e => e.Address == validatedToken.Email.Address && e.IsVerified), CancellationToken)).ReturnsAsync(user);
 
     CreatedToken createdToken = new("profile_token");
-    TokenService.Setup(x => x.CreateAsync(user.Id.ToString(), "profile+jwt", CancellationToken)).ReturnsAsync(createdToken);
+    TokenService.Setup(x => x.CreateAsync(user.Id.ToString(), user.Email, "profile+jwt", CancellationToken)).ReturnsAsync(createdToken);
 
     SignInCommand command = new(payload, CustomAttributes: []);
     SignInCommandResult result = await Pipeline.ExecuteAsync(command, CancellationToken);
@@ -148,7 +148,7 @@ public class SignInCommandTests : IntegrationTests
     UserService.Setup(x => x.FindAsync(user.UniqueName, CancellationToken)).ReturnsAsync(user);
 
     CreatedToken token = new("token");
-    TokenService.Setup(x => x.CreateAsync(user.Id.ToString(), "profile+jwt", CancellationToken)).ReturnsAsync(token);
+    TokenService.Setup(x => x.CreateAsync(user.Id.ToString(), user.Email, "profile+jwt", CancellationToken)).ReturnsAsync(token);
 
     SignInPayload payload = new(Faker.Locale)
     {
@@ -190,7 +190,7 @@ public class SignInCommandTests : IntegrationTests
     OneTimePasswordService.Setup(x => x.ValidateAsync(payload.OneTimePassword, "MultiFactorAuthentication", CancellationToken)).ReturnsAsync(oneTimePassword);
 
     CreatedToken createdToken = new("profile_token");
-    TokenService.Setup(x => x.CreateAsync(user.Id.ToString(), "profile+jwt", CancellationToken)).ReturnsAsync(createdToken);
+    TokenService.Setup(x => x.CreateAsync(user.Id.ToString(), user.Email, "profile+jwt", CancellationToken)).ReturnsAsync(createdToken);
 
     SignInCommand command = new(payload, CustomAttributes: []);
     SignInCommandResult result = await Pipeline.ExecuteAsync(command, CancellationToken);
@@ -481,7 +481,7 @@ public class SignInCommandTests : IntegrationTests
     UserService.Setup(x => x.UpdateEmailAsync(updatedUser.Id, updatedUser.Email, CancellationToken)).ReturnsAsync(updatedUser);
 
     CreatedToken createdToken = new("profile_token");
-    TokenService.Setup(x => x.CreateAsync(user.Id.ToString(), "profile+jwt", CancellationToken)).ReturnsAsync(createdToken);
+    TokenService.Setup(x => x.CreateAsync(user.Id.ToString(), updatedUser.Email, "profile+jwt", CancellationToken)).ReturnsAsync(createdToken);
 
     SignInCommand command = new(payload, CustomAttributes: []);
     SignInCommandResult result = await Pipeline.ExecuteAsync(command, CancellationToken);

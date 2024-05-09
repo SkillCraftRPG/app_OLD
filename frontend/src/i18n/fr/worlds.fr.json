@@ -1,0 +1,15 @@
+{
+  "empty": "Cette liste est vide.",
+  "sort": {
+    "options": {
+      "DisplayName": "Nom d’affichage",
+      "UniqueSlug": "Alias unique",
+      "UpdatedOn": "Dernière modification"
+    }
+  },
+  "title": {
+    "create": "Nouvel univers",
+    "list": "Univers"
+  },
+  "uniqueSlug": "Alias unique"
+}

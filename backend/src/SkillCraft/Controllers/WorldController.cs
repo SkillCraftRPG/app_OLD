@@ -3,8 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using SkillCraft.Application;
 using SkillCraft.Application.Worlds.Commands;
 using SkillCraft.Application.Worlds.Queries;
+using SkillCraft.Contracts.Search;
 using SkillCraft.Contracts.Worlds;
 using SkillCraft.Extensions;
+using SkillCraft.Models.Worlds;
 
 namespace SkillCraft.Controllers;
 
@@ -39,6 +41,13 @@ public class WorldController : ControllerBase
   {
     World? world = await _requestPipeline.ExecuteAsync(new ReadWorldQuery(Id: null, uniqueSlug), cancellationToken);
     return world == null ? NotFound() : Ok(world);
+  }
+
+  [HttpGet]
+  public async Task<ActionResult<SearchResults<World>>> SearchAsync([FromQuery] SearchWorldsModel model, CancellationToken cancellationToken)
+  {
+    SearchResults<World> worlds = await _requestPipeline.ExecuteAsync(new SearchWorldsQuery(model.ToPayload()), cancellationToken);
+    return Ok(worlds);
   }
 
   private Uri BuildLocation(World world) => HttpContext.BuildLocation("worlds/{id}", new Dictionary<string, string> { ["id"] = world.Id.ToString() });
