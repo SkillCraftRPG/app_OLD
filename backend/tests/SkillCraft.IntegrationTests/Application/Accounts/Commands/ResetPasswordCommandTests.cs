@@ -94,7 +94,7 @@ public class ResetPasswordCommandTests : IntegrationTests
     TokenService.Setup(x => x.ValidateAsync(payload.Token, "reset_password+jwt", CancellationToken)).ReturnsAsync(validatedToken);
 
     CreatedToken createdToken = new("profile_token");
-    TokenService.Setup(x => x.CreateAsync(user.Id.ToString(), "profile+jwt", CancellationToken)).ReturnsAsync(createdToken);
+    TokenService.Setup(x => x.CreateAsync(user.Id.ToString(), user.Email, "profile+jwt", CancellationToken)).ReturnsAsync(createdToken);
 
     ResetPasswordCommand command = new(payload, CustomAttributes: []);
     ResetPasswordResult result = await Pipeline.ExecuteAsync(command, CancellationToken);
