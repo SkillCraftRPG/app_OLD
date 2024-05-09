@@ -36,6 +36,17 @@ const router = createRouter({
       path: "/sign-out",
       component: () => import("./views/account/SignOutView.vue"),
     },
+    // Worlds
+    {
+      name: "WorldEdit",
+      path: "/worlds/:id",
+      component: () => import("./views/worlds/WorldEdit.vue"),
+    },
+    {
+      name: "WorldList",
+      path: "/worlds",
+      component: () => import("./views/worlds/WorldList.vue"),
+    },
     // NotFound
     {
       name: "NotFound",

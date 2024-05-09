@@ -97,7 +97,9 @@ watchEffect(() => {
             </ul>
           </li>
           <template v-if="user">
-            <!-- TODO(fpion): add li.nav-item -->
+            <li class="nav-item">
+              <RouterLink :to="{ name: 'WorldList' }" class="nav-link"><font-awesome-icon icon="fas fa-globe" /> {{ t("worlds.title.list") }}</RouterLink>
+            </li>
           </template>
         </ul>
 
