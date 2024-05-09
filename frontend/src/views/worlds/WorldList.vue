@@ -161,7 +161,7 @@ watch(
             <td>
               <RouterLink :to="{ name: 'WorldEdit', params: { id: world.id } }"> <font-awesome-icon icon="fas fa-edit" />{{ world.uniqueSlug }} </RouterLink>
             </td>
-            <td>{{ world.displayName ?? "TODO" }}</td>
+            <td>{{ world.displayName ?? "—" }}</td>
             <td><StatusBlock :actor="world.updatedBy" :date="world.updatedOn" /></td>
           </tr>
         </tbody>
