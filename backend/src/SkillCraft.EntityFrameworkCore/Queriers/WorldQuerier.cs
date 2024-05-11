@@ -53,9 +53,10 @@ internal class WorldQuerier : IWorldQuerier
     return world == null ? null : await MapAsync(world, cancellationToken);
   }
 
-  public async Task<SearchResults<World>> SearchAsync(SearchWorldsPayload payload, CancellationToken cancellationToken)
+  public async Task<SearchResults<World>> SearchAsync(Guid userId, SearchWorldsPayload payload, CancellationToken cancellationToken)
   {
     IQueryBuilder builder = _sqlHelper.QueryFrom(SkillCraftDb.Worlds.Table)
+      .Where(SkillCraftDb.Worlds.CreatedBy, Operators.IsEqualTo(new ActorId(userId).Value)) // TODO(fpion): Members
       .ApplyIdFilter(payload.Ids, SkillCraftDb.Worlds.AggregateId)
       .SelectAll(SkillCraftDb.Worlds.Table);
     _sqlHelper.ApplyTextSearch(builder, payload.Search, SkillCraftDb.Worlds.UniqueSlug, SkillCraftDb.Worlds.DisplayName);

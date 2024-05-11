@@ -10,5 +10,5 @@ public interface IWorldQuerier
   Task<World?> ReadAsync(WorldId id, CancellationToken cancellationToken = default);
   Task<World?> ReadAsync(Guid id, CancellationToken cancellationToken = default);
   Task<World?> ReadAsync(string uniqueSlug, CancellationToken cancellationToken = default);
-  Task<SearchResults<World>> SearchAsync(SearchWorldsPayload payload, CancellationToken cancellationToken = default);
+  Task<SearchResults<World>> SearchAsync(Guid userId, SearchWorldsPayload payload, CancellationToken cancellationToken = default);
 }

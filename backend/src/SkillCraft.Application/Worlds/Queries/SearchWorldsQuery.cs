@@ -4,4 +4,4 @@ using SkillCraft.Contracts.Worlds;
 
 namespace SkillCraft.Application.Worlds.Queries;
 
-public record SearchWorldsQuery(SearchWorldsPayload Payload) : IRequest<SearchResults<World>>;
+public record SearchWorldsQuery(SearchWorldsPayload Payload) : Activity, IRequest<SearchResults<World>>;
