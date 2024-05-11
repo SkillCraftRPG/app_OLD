@@ -17,8 +17,8 @@ public class ReadWorldQueryTests : IntegrationTests
   {
     _worldRepository = ServiceProvider.GetRequiredService<IWorldRepository>();
 
-    _alternate = new WorldAggregate(new UniqueSlugUnit("alternate"));
-    _universe = new WorldAggregate(new UniqueSlugUnit("universe"));
+    _alternate = new WorldAggregate(new UniqueSlugUnit("alternate"), ActorId);
+    _universe = new WorldAggregate(new UniqueSlugUnit("universe"), ActorId);
   }
 
   public override async Task InitializeAsync()
@@ -62,4 +62,6 @@ public class ReadWorldQueryTests : IntegrationTests
     Assert.Equal(1, exception.ExpectedCount);
     Assert.Equal(2, exception.ActualCount);
   }
+
+  // TODO(fpion): try reading a world you cannot read
 }
